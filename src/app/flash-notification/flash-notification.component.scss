@@ -1,0 +1,127 @@
+.flyinNotification__wrap{
+  position: fixed;
+  top: 4rem;
+  right: 2rem;
+  width: 40rem;
+  min-height: 10rem;
+  z-index: 3;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  border-radius: .5rem;
+}
+.flyinNotification__img{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flyinNotification__img img{
+  width: 60%;
+}
+.flyinNotification__body{
+  width: 100%;
+}
+.flyinNotification__body__header{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 2rem;
+  text-transform: capitalize;
+}
+.flyinNotification__body__header__close{
+  width: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.flyinNotification__body__header__close img{
+  width: 100%;
+}
+.flyinNotification__body__msg{
+  font-size: 1.4rem;
+  padding-left: 2rem;
+}
+
+.flyinNotification__wrap--success{
+  background: #EFFFF7;
+  border: .1rem solid #32DF84;
+}
+.flyinNotification__img--success{
+  background: #00BB59;
+}
+.flyinNotification__body__header__label--success{
+  color: #0B7E42;
+}
+.flyinNotification__body__msg--success{
+  color: #08592E;
+}
+
+.flyinNotification__wrap--warning{
+  background: #FFE6E6;
+  border: .1rem solid #FFACAC;
+}
+.flyinNotification__img--warning{
+  background: #FF8181;
+}
+.flyinNotification__body__header__label--warning{
+  color: #E66666;
+}
+.flyinNotification__body__msg--warning{
+  color: #5A1414;
+}
+
+.flyinNotification__wrap--info{
+  background: #E3F4FF;
+  border: .1rem solid #9AD5FF;
+}
+.flyinNotification__img--info{
+  background: #008FF4;
+}
+.flyinNotification__body__header__label--info{
+  color: #008FF4;
+}
+.flyinNotification__body__msg--info{
+  color: #0D5282;
+}
+
+.notifications__container{
+  position: relative;
+  width: 100%;
+  padding: 2rem 2rem 0 2rem;
+  color: var(--red);
+  padding: 2rem 2rem 0 2rem;
+}
+.notifications__container img{
+  position: absolute;
+  right: 4rem;
+  top: 3rem;
+  width: 3rem;
+}
+.notify{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  font-size: 1.4rem;
+  /* animation: moveInLeft 1s ease-out; */
+}
+.notify-err{
+  display: block;
+  background: rgba(255, 4, 4, 0.09);
+  padding: 1rem 2rem;
+  border-radius: .5rem;
+}
+.notify-success{
+  background: rgba(102, 255, 102, 0.09);
+  border: .1rem solid rgba(102, 255, 102, 0.379331);
+  color: var(--green);
+  display: none;
+}
+.notify-err img, .notify-success img{
+  margin-right: 1rem;
+}

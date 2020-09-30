@@ -1,0 +1,18 @@
+<div class="flyinNotification__wrap flyinNotification__wrap--${type}"
+  [ngClass]="{'flyinNotification__wrap--success': type=='success',
+  'flyinNotification__wrap--warning':type=='warning',
+  'flyinNotification__wrap--info':type=='info'
+}">
+    <!-- <div class="flyinNotification__img flyinNotification__img--${type}">
+        <img src="../../assets/icons/in-check-icon-white.svg" alt="" />
+    </div> -->
+    <div class="flyinNotification__body">
+        <div class="flyinNotification__body__header">
+            <div class="flyinNotification__body__header__label--${type}">{{type}}</div>
+            <!-- <div class="flyinNotification__body__header__close">
+                <img src="../../assets/icons/in-close-icon-black.svg" alt=""/>
+            </div> -->
+        </div>
+        <div class="flyinNotification__body__msg flyinNotification__body__msg--${type}">{{msg}}</div>
+    </div>
+</div>
