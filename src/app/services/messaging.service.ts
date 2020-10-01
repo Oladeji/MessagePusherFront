@@ -2,12 +2,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 import { BehaviorSubject } from 'rxjs';
-
+import{Store}  from '@ngrx/store'
+import { AppState } from '../store/appstate';
+import { addmsg } from '../store/msg.actions';
+import { msgtype } from '../msgtype';
 @Injectable()
 export class MessagingService {
   currentMessage = new BehaviorSubject(null);
-  
-  constructor(private angularFireMessaging: AngularFireMessaging)
+  t:msgtype;
+  constructor( private store : Store<AppState>,private angularFireMessaging: AngularFireMessaging)
   {
     //  console.log(' Messaging service constructor called');
     //  this.angularFireMessaging.messaging.subscribe(
@@ -48,8 +51,23 @@ receiveMessage() {
    (payload:any) => {
     console.log('new message received. ', payload.notification);
     console.log('new message received. ', payload);
+    //this.Addtostore(payload.notification)
+    
+    this.store.dispatch(addmsg(payload.notification))
    // this.currentMessage.next(payload);
+  
    this.currentMessage.next(payload.notification);
+  
 });
 }
+Addtostore(notification )
+{
+ 
+  this.t.body="dswdwd"
+  this.t.icon="asdw"
+  this.t.title="ccfd"
+  console.log('new message sent to store ',notification);
+  this.store.dispatch(addmsg(this.t))
+}
+
 }

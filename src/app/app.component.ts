@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { MessagingService } from './services/messaging.service';
 import { Observable } from 'rxjs';
-
+import{Store, select}  from '@ngrx/store'
+import {AppState}  from '../app/store/appstate'
+import { msgtype } from './msgtype';
+import { addmsg } from './store/msg.actions';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -11,23 +14,32 @@ export class AppComponent {
   title = 'AngFirePush1';
   message:Observable<any>;
   body:msgtype;
+  show:msgtype;
   notificationType = 'info'; // success, info, warning
   notificationMessage = '';
   flashnotification = false;
-
-  constructor(private messagingService: MessagingService) { 
-
+  //themsg$: Observable<msgtype>;
+  //themsg$=this.store.pipe(select(state=>state.msg)) 
+  //themsg$=this.store.pipe(select(state=>state.msg)) 
+  constructor(private store : Store<AppState>,private messagingService: MessagingService) { 
+    this.store.select<any>('msgtype')
+    .subscribe((x:msgtype)=>{
+      this.show= x
+      console.log("Sxxxxxxxxxxxxxxxxxxxxxxeding from store")
+      console.log(x)
+      this.notify( x);
+      console.log(x.body)
+  });
 
 } //--injection
 
 
 ngOnInit() {
-  this.messagingService.requestPermission()
-  this.messagingService.receiveMessage()
-  
-  //this.messagingService.currentMessage.subscribe((x:msgtype)=>{this.body=x
-  this.notify(this.messagingService.currentMessage)
+    this.messagingService.requestPermission()
+    this.messagingService.receiveMessage()
 
+
+ 
    // console.log(this.body.body)
     //console.log(x)
     //console.log(this.body.data)
@@ -36,12 +48,17 @@ ngOnInit() {
   //this.message.subscribe((x)=>this.body=x);
  
  }
-  notify(body: Observable<msgtype> ){
-    console.log("Calling to notify")
-    body.subscribe((x:msgtype)=>this.body=x)
-    console.log(this.body)
+
+ getMessage()
+ {
+   
+ }
+ 
+ notify(body: msgtype ){
+
+    console.log(body)
     this.notificationType = 'warning'; // success, info, 
-    this.notificationMessage = this.body.title;
+    this.notificationMessage = body.title;
     this.flashnotification = true;
 
   }
