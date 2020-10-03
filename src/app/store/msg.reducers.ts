@@ -3,7 +3,7 @@ import { addmsg } from '../store/msg.actions';
 import { msgtype } from '../msgtype';
 
 const initialState :msgtype[]=[{
-    body:'Waiting For Sign Up',
+    body:'Waiting......',
     icon: '',
     title :'Waiting title'
 }]
@@ -14,7 +14,7 @@ export const msgReducers= createReducer< msgtype[]> (initialState,
         icon: action.icon,
         title :action.title,
 
-            })
+        })
       )
 
     );

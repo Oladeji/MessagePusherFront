@@ -16,10 +16,13 @@ import {MatChipsModule} from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatButtonModule} from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { DisplayComponent } from './display/display.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +35,11 @@ import { DisplayComponent } from './display/display.component';
       logOnly:environment.production
     }),   BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    ReactiveFormsModule, FormsModule,
     AppRoutingModule,AngularFireMessagingModule,
     BrowserModule,AngularFireModule.initializeApp(environment.firebase),
-    MatChipsModule,MatIconModule,MatCardModule,MatButtonModule,
+    MatChipsModule,MatIconModule,MatCardModule,MatButtonModule,MatFormFieldModule,
+    MatInputModule,
    // MatDialogModule,
     //MatSliderModule,
      //AngularFireAuthModule,
