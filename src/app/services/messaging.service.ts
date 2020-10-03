@@ -36,8 +36,9 @@ export class MessagingService {
 requestPermission() {
   this.angularFireMessaging.requestToken.subscribe(
   (token) => {
-  console.log(token);
-  console.log('Permission granted!');
+    console.log(token);
+    
+    console.log('Permission granted!');
   },
   (err) => {
   console.error('Unable to get permission to notify.', err);
@@ -60,14 +61,6 @@ receiveMessage() {
   
 });
 }
-Addtostore(notification )
-{
- 
-  this.t.body="dswdwd"
-  this.t.icon="asdw"
-  this.t.title="ccfd"
-  console.log('new message sent to store ',notification);
-  this.store.dispatch(addmsg(this.t))
-}
+
 
 }

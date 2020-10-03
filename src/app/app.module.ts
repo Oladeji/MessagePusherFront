@@ -16,10 +16,15 @@ import {MatChipsModule} from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './login/login.component';
+import { DisplayComponent } from './display/display.component';
 @NgModule({
   declarations: [
-    AppComponent 
+    AppComponent,
+    LoginComponent,
+    DisplayComponent 
   ],
   imports: [
     BrowserModule,CommonModule,StoreModule.forRoot({msgtype:msgReducers}),
@@ -29,7 +34,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,AngularFireMessagingModule,
     BrowserModule,AngularFireModule.initializeApp(environment.firebase),
-    MatChipsModule,MatIconModule,MatCardModule,
+    MatChipsModule,MatIconModule,MatCardModule,MatButtonModule,
    // MatDialogModule,
     //MatSliderModule,
      //AngularFireAuthModule,

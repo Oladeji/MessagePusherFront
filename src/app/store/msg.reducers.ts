@@ -3,7 +3,7 @@ import { addmsg } from '../store/msg.actions';
 import { msgtype } from '../msgtype';
 
 const initialState :msgtype[]=[{
-    body:'Waiting For message',
+    body:'Waiting For Sign Up',
     icon: '',
     title :'Waiting title'
 }]
