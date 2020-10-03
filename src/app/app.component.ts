@@ -5,6 +5,12 @@ import{Store, select}  from '@ngrx/store'
 import {AppState}  from '../app/store/appstate'
 import { msgtype } from './msgtype';
 import { ToastrService } from 'ngx-toastr';
+import {ThemePalette} from '@angular/material/core';
+
+export interface ChipColor {
+  name: string;
+  color: ThemePalette;
+}
 
 @Component({
   selector: 'app-root',
@@ -12,10 +18,18 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngFirePush1';
+  title = 'Display Notification';
+  availableColors: ChipColor[] = [
+    {name: 'none', color: undefined},
+    {name: 'Primary', color: 'primary'},
+    {name: 'Accent', color: 'accent'},
+    {name: 'Warn', color: 'warn'}
+  ];
   message:Observable<any>;
   body:msgtype[];
   show:msgtype[];
+  selectable = true;
+  removable = true;visible = true;
 
   //themsg$: Observable<msgtype>;
   //themsg$=this.store.pipe(select(state=>state.msg)) 
@@ -35,7 +49,18 @@ export class AppComponent {
 
 } //--injection
 
+remove(index): void {
 
+ // let i =  this.show.find(x => x.body == this.personId);
+
+//  const index = this.show.indexOf(fruit);
+  if (index >= 0) {
+    this.show.splice(index, 1);
+    console.log(index);
+    console.log(this.show)
+
+  }
+}
 ngOnInit() {
     this.messagingService.requestPermission()
     this.messagingService.receiveMessage()

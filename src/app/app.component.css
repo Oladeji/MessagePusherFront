@@ -286,3 +286,10 @@
       visibility: hidden;
     }
   }
+  .example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+      background-size: cover;
+  }

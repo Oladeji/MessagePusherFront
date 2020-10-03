@@ -12,9 +12,10 @@ import { MessagingService } from './services/messaging.service';
 import { AsyncPipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
 import {StoreDevtoolsModule}  from '@ngrx/store-devtools'
-
+import {MatChipsModule} from '@angular/material/chips';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
- 
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
@@ -28,8 +29,9 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,AngularFireMessagingModule,
     BrowserModule,AngularFireModule.initializeApp(environment.firebase),
-    
-  
+    MatChipsModule,MatIconModule,MatCardModule,
+   // MatDialogModule,
+    //MatSliderModule,
      //AngularFireAuthModule,
       AngularFireMessagingModule,
       AngularFirestoreModule,
