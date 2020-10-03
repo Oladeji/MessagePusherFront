@@ -31,7 +31,7 @@
       </g>
     </svg>
   <div *ngIf='show'>
-   <span>show {{ show.title}}</span>
+   <span> {{ show.title}}</span>
   
   </div>
    
@@ -53,10 +53,19 @@
   <!-- Links -->
   <div class="card-container">
 
+  <div *ngIf='show'>
+  <ul>
+  <li *ngFor="let mg of show">
+   <span> {{ mg.title}}</span>
+  </li>
+  </ul>
+  </div>
+
+
 
   </div>
 
 
 </div>
-<app-flash-notification  *ngIf='flashnotification'  [type]='notificationType'  [msg]='notificationMessage'></app-flash-notification>
+
 <router-outlet></router-outlet>

@@ -11,18 +11,21 @@ import { environment } from 'src/environments/environment';
 import { MessagingService } from './services/messaging.service';
 import { AsyncPipe } from '@angular/common';
 import { CommonModule } from '@angular/common';
-import { FlashNotificationComponent } from './flash-notification/flash-notification.component';
 import {StoreDevtoolsModule}  from '@ngrx/store-devtools'
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
-    AppComponent ,FlashNotificationComponent
+    AppComponent 
   ],
   imports: [
     BrowserModule,CommonModule,StoreModule.forRoot({msgtype:msgReducers}),
     StoreDevtoolsModule.instrument({maxAge:25,
       logOnly:environment.production
-    }),
+    }),   BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot(), // ToastrModule added
     AppRoutingModule,AngularFireMessagingModule,
     BrowserModule,AngularFireModule.initializeApp(environment.firebase),
     

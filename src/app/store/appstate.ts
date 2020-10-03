@@ -2,7 +2,7 @@ import { msgtype } from '../msgtype';
 
 export interface AppState
 {
-    msg:msgtype;
+    msg:msgtype[];
 }
 
 //Add msg
