@@ -30,7 +30,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     DisplayComponent 
   ],
   imports: [
-    BrowserModule,CommonModule,StoreModule.forRoot({msgtype:msgReducers}),
+    BrowserModule,CommonModule,StoreModule.forRoot({newmsg:msgReducers}),
     StoreDevtoolsModule.instrument({maxAge:25,
       logOnly:environment.production
     }),   BrowserAnimationsModule, // required animations module

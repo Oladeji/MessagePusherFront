@@ -34,14 +34,14 @@ export class DisplayComponent implements OnInit {
 
   constructor(private toastr: ToastrService,private store : Store<AppState>,private messagingService: MessagingService  ) {
 	
-    this.store.select<any>('msgtype')
-    .subscribe((x:msgtype[])=>{
-      this.show= x
+    this.store.select<any>('newmsg')
+    .subscribe((x:AppState)=>{
+      this.show= x.msg
       console.log("Sxxxxxxxxxxxxxxxxxxxxxxeding from store")
       console.log(x)
       //this.notify( x);
       
-      //this.toastr.success(x.title, x.body);
+      //this.toastr.success(this.show.title, x.body);
       //console.log(x.body)
   });
 
