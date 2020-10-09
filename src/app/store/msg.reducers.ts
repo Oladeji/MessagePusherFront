@@ -1,5 +1,5 @@
 import {createReducer,on, Action} from '@ngrx/store';
-import { addmsg, AddMessageOnly } from '../store/msg.actions';
+import { addmsg, AddMessageOnly, AddToken, AddPatientInfo } from '../store/msg.actions';
 import { msgtype } from '../msgtype';
 import { AppState } from './appstate';
 
@@ -13,8 +13,9 @@ const initialState :AppState={
 
   token:'token',
   loggedIn:false,
-  id:'gg',
-  passcode:'bb'
+  hastoken:false,
+  id:'',
+  passcode:''
 }
 
 
@@ -36,10 +37,18 @@ const initialState :AppState={
         (
             {...state,   body:action.body,title:action.title,icon:action.icon  } )
         )  
+
+        
     ,
-    
-    
-      on(AddMessageOnly ,(state,action)=>
+    on(AddToken ,(state,action)=>
+    (
+        {...state,   token:action.thetoken,hastoken:true  } )
+    )  ,
+    on(AddPatientInfo ,(state,action)=>
+    (
+        {...state,   id:action.patientid,passcode:action.passcode,loggedIn:true  } )
+    )  ,
+    on(AddMessageOnly ,(state,action)=>
                         
         // ({...state,msg:[...state.msg.concat({
         //     body:'action.msg.body',title:'action.msg.title',icon:'action.msg.icon' 

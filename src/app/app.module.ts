@@ -23,11 +23,14 @@ import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './login/login.component';
 import { DisplayComponent } from './display/display.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { BroadcastMessagesComponent } from './broadcast-messages/broadcast-messages.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    DisplayComponent 
+    DisplayComponent,
+    BroadcastMessagesComponent 
   ],
   imports: [
     BrowserModule,CommonModule,StoreModule.forRoot({newmsg:msgReducers}),
@@ -39,7 +42,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     AppRoutingModule,AngularFireMessagingModule,
     BrowserModule,AngularFireModule.initializeApp(environment.firebase),
     MatChipsModule,MatIconModule,MatCardModule,MatButtonModule,MatFormFieldModule,
-    MatInputModule,
+    MatInputModule,HttpClientModule,
    // MatDialogModule,
     //MatSliderModule,
      //AngularFireAuthModule,

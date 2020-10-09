@@ -60,7 +60,7 @@ remove(index): void {
   }
 }
 ngOnInit() {
-    this.messagingService.requestPermission()
+  //  this.messagingService.requestPermission()
     this.messagingService.receiveMessage()
 
  }

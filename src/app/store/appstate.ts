@@ -7,6 +7,7 @@ export interface AppState
     loggedIn:boolean;
     id:string;
     passcode:string;
+    hastoken:boolean
 }
 
 //Add msg
